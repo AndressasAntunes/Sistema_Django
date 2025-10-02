@@ -37,6 +37,3 @@ O projeto utiliza um *stack* de desenvolvimento web moderno e amplamente reconhe
 | **Banco de Dados** | **SQLite** (padrão) | Utilizado para desenvolvimento e testes, com possibilidade de migração para PostgreSQL ou MySQL em produção. |
 
 ---
----
-
-Este formato é mais informativo e vende melhor o projeto, pois transforma a lista de funcionalidades em descrições de valor para um sistema de biblioteca.
