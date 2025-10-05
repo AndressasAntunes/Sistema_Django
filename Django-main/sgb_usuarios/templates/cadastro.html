@@ -8,6 +8,15 @@
 <body>
     <div class="container my-5">
         <h1>Cadastro de Novo Usuário</h1>
+        
+        <!-- Mensagem de Sucesso -->
+        {% if sucesso %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Sucesso!</strong> Usuário cadastrado com sucesso!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+        
         <style>
         /* Cores da Paleta */
         :root {
@@ -82,6 +91,17 @@
         .text-danger { /* Mensagens de erro */
             color: var(--cor-rosa-queimado-malva) !important; 
             font-weight: bold;
+        }
+
+        /* Estilo para o alerta de sucesso */
+        .alert-success {
+            background-color: rgba(165, 98, 118, 0.1);
+            border-color: var(--cor-rosa-queimado-malva);
+            color: var(--cor-marrom-escuro);
+        }
+
+        .alert .btn-close {
+            padding: 0.75rem;
         }
     </style>
         <form method="post">

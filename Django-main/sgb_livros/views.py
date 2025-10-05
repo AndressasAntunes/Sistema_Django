@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Livro
-# Create your views here.
+from django.contrib.auth.decorators import login_required
 
 
 def livros(request):
@@ -24,7 +24,7 @@ def salvar_livro(request):
 def index(request):
     return render(request, 'index.html')
 
-
+@login_required
 def cadastro_livro(request):
     if request.method == 'POST':
         livro_id = request.POST['livro_id']
@@ -52,6 +52,7 @@ def cadastro_livro(request):
     livros = Livro.objects.all()  # Recupera todos os livros do banco de dados
     return render(request, 'livros.html', {'livros': livros})
 
+@login_required
 def exclui_livro(request, livro_id):
     #get_objects_or_404 tenta recuperar o objeto com o ID fornecido buscando no banco de dados e, 
     # se não encontrar, retorna um erro 404. Se encontrar o objeto, ele o retorna para 
@@ -60,6 +61,7 @@ def exclui_livro(request, livro_id):
     livro.delete()
     return redirect('cadastro_livro')
 
+@login_required
 def edita_livro(request, livro_id):
     livro = get_object_or_404(Livro, id=livro_id)
     livros = Livro.objects.all()  # Recupera todos os livros do banco de dados
